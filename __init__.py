@@ -70,7 +70,7 @@ REQ_DICT = {
 }
 ADDON_DIR = dirname(abspath(__file__))
 REQ_ZIP_DIR = join(ADDON_DIR, "Resources", "REQ_ZIP_DIR")
-BDENTAL_4D_Modules_DIR = join(os.path.expanduser("~"),"BDENTAL_4D_Modules_291")
+BDENTAL_4D_Modules_DIR = join(os.path.expanduser("~"),"BDENTAL4D_win3_Modules")
 
 if not sys.path[0] == BDENTAL_4D_Modules_DIR:
     sys.path.insert(0, BDENTAL_4D_Modules_DIR)
