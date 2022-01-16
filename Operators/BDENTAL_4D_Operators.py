@@ -3194,7 +3194,7 @@ class BDENTAL_4D_OT_hollow_model(bpy.types.Operator):
 
             # remesh Model_lowres 1.0 mm :
 
-            bpy.context.object.data.use_remesh_smooth_normals = True
+            # bpy.context.object.data.use_remesh_smooth_normals = True
             bpy.context.object.data.use_remesh_preserve_volume = True
             bpy.context.object.data.use_remesh_fix_poles = True
             bpy.context.object.data.remesh_voxel_size = 1
@@ -3346,7 +3346,7 @@ class BDENTAL_4D_OT_BlockModel(bpy.types.Operator):
                 BlockedModel.data.remesh_mode = "VOXEL"
                 BlockedModel.data.remesh_voxel_size = 0.2
                 BlockedModel.data.use_remesh_fix_poles = True
-                BlockedModel.data.use_remesh_smooth_normals = True
+                # BlockedModel.data.use_remesh_smooth_normals = True
                 BlockedModel.data.use_remesh_preserve_volume = True
 
                 bpy.ops.object.voxel_remesh()
@@ -4950,7 +4950,7 @@ class BDENTAL_4D_OT_VoxelRemesh(bpy.types.Operator):
         ActiveObj.data.remesh_mode = "VOXEL"
         ActiveObj.data.remesh_voxel_size = self.VoxelSize
         ActiveObj.data.use_remesh_fix_poles = True
-        ActiveObj.data.use_remesh_smooth_normals = True
+        # ActiveObj.data.use_remesh_smooth_normals = True
         ActiveObj.data.use_remesh_preserve_volume = True
 
         bpy.ops.object.voxel_remesh()
@@ -5404,6 +5404,8 @@ class BDENTAL_4D_OT_CurveCutterCut(bpy.types.Operator):
 
     def execute(self, context):
 
+        bpy.ops.ed.undo_push()
+
         # Get CuttingTarget :
         CuttingTargetName = bpy.context.scene.BDENTAL_4D_Props.CuttingTargetNameProp
         CuttingTarget = bpy.data.objects[CuttingTargetName]
@@ -5509,9 +5511,9 @@ class BDENTAL_4D_OT_CurveCutterCut(bpy.types.Operator):
         bpy.ops.object.vertex_group_assign()
 
         # OtherObjList = [obj for obj in bpy.data.objects if obj!= CuttingTarget]
-        # hide all but object
-        bpy.ops.object.mode_set(mode="OBJECT")
-        bpy.ops.object.hide_view_set(unselected=True)
+        # # hide all but object
+        # bpy.ops.object.mode_set(mode="OBJECT")
+        # bpy.ops.object.hide_view_set(unselected=True)
 
         # delete curve_vgroup :
         bpy.ops.object.mode_set(mode="EDIT")
@@ -5520,19 +5522,21 @@ class BDENTAL_4D_OT_CurveCutterCut(bpy.types.Operator):
 
         CuttingTarget.vertex_groups.active_index = curve_vgroup.index
         bpy.ops.object.vertex_group_select()
-        bpy.ops.mesh.delete(type="FACE")
+        bpy.ops.mesh.delete(type="VERT")
 
-        bpy.ops.ed.undo_push()
+        
         # 1st methode :
         SplitSeparator(CuttingTarget=CuttingTarget)
 
         for obj in context.visible_objects:
-            if len(obj.data.polygons) <= 1:
+            obj.vertex_groups.clear()
+            if len(obj.data.polygons) <= 10:
                 bpy.data.objects.remove(obj)
+        
 
         print("Cutting done with first method")
 
-        # Filtring loose parts :
+        # # Filtring loose parts :
         # resulting_parts = PartsFilter()
 
         # if resulting_parts > 1:

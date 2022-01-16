@@ -429,17 +429,17 @@ class BDENTAL_4D_PT_MeshesTools_Panel(bpy.types.Panel):
                 text="CUT",
                 icon="GP_MULTIFRAME_EDITING",
             )
-        elif BDENTAL_4D_Props.Cutting_Tools_Types_Prop == "Curve Cutter 3":
-            row = Box.row()
-            row.prop(BDENTAL_4D_Props, "CurveCutCloseMode", text="")
-            row.operator(
-                "bdental4d.curvecutteradd3", text="ADD CUTTER", icon="GP_SELECT_STROKES"
-            )
-            row.operator(
-                "bdental4d.curvecuttercut3",
-                text="CUT",
-                icon="GP_MULTIFRAME_EDITING",
-            )
+        # elif BDENTAL_4D_Props.Cutting_Tools_Types_Prop == "Curve Cutter 3":
+        #     row = Box.row()
+        #     row.prop(BDENTAL_4D_Props, "CurveCutCloseMode", text="")
+        #     row.operator(
+        #         "bdental4d.curvecutteradd3", text="ADD CUTTER", icon="GP_SELECT_STROKES"
+        #     )
+        #     row.operator(
+        #         "bdental4d.curvecuttercut3",
+        #         text="CUT",
+        #         icon="GP_MULTIFRAME_EDITING",
+        #     )
         elif BDENTAL_4D_Props.Cutting_Tools_Types_Prop == "Square Cutter":
 
             # Cutting mode column :
