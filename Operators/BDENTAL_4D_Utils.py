@@ -1002,7 +1002,7 @@ def VolumeRender(DcmInfo, GpShader, ShadersBlendFile, VoxelMode):
         Voxel_Coronal.name = f"{Preffix}_Coronal_CTVolume"
         bpy.ops.object.origin_set(type="ORIGIN_GEOMETRY", center="MEDIAN")
         Voxel_Coronal.matrix_world.translation = (0,0,0)
-        bpy.ops.transform.rotate(value=1.5708, orient_axis='X', orient_type='GLOBAL')
+        bpy.ops.transform.rotate(value=-1.5708, orient_axis='X', orient_type='GLOBAL')
         
 
         Voxel_Coronal.matrix_world = TransformMatrix @ Voxel_Coronal.matrix_world
@@ -1092,8 +1092,8 @@ def VolumeRender(DcmInfo, GpShader, ShadersBlendFile, VoxelMode):
         bpy.ops.object.origin_set(type="ORIGIN_GEOMETRY", center="MEDIAN")
         Voxel_Sagital.matrix_world.translation = (0,0,0)
 
-        bpy.ops.transform.rotate(value=1.5708, orient_axis='X', orient_type='GLOBAL')
-        bpy.ops.transform.rotate(value=1.5708, orient_axis='Z', orient_type='GLOBAL')
+        bpy.ops.transform.rotate(value=-1.5708, orient_axis='X', orient_type='GLOBAL')
+        bpy.ops.transform.rotate(value=-1.5708, orient_axis='Z', orient_type='GLOBAL')
         
 
         Voxel_Sagital.matrix_world = TransformMatrix @ Voxel_Sagital.matrix_world
