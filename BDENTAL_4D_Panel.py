@@ -44,7 +44,14 @@ class BDENTAL_4D_PT_MainPanel(bpy.types.Panel):
         row = box.row()
         row.alert = True
         row.alignment = "CENTER"
-        row.label(text=f"WINDOWS VERSION : {Addon_Version_Date}")
+
+        if sys.platform == "win32":
+            txt = f"WINDOWS VERSION : {Addon_Version_Date}"
+        if sys.platform == "darwin" :
+            txt = f"MAC VERSION : {Addon_Version_Date}"
+        if sys.platform in ['linux' or 'linux2'] :
+            txt = f"LINUX VERSION : {Addon_Version_Date}"
+        row.label(text=txt)
 
         row = box.row()
         row.alignment = "CENTER"

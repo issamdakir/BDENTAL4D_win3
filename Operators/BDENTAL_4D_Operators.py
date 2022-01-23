@@ -3021,7 +3021,7 @@ class BDENTAL_4D_OT_ModelBase(bpy.types.Operator):
                     Delta = BaseHeight
                     if self.HollowModel:
                         HollowOffset = 4
-                        BisectPlaneLoc = Vector((0, 0, Extrem_z))
+                        BisectPlaneLoc = Vector((0, 0, Extrem_z+Delta))
                         BisectPlaneNormal = Vector((0, 0, 1))
 
                 if self.ModelType == "Lower Model":
@@ -3029,7 +3029,7 @@ class BDENTAL_4D_OT_ModelBase(bpy.types.Operator):
                     Delta = -BaseHeight
                     if self.HollowModel:
                         HollowOffset = -4
-                        BisectPlaneLoc = Vector((0, 0, Extrem_z))
+                        BisectPlaneLoc = Vector((0, 0, Extrem_z+Delta))
                         BisectPlaneNormal = Vector((0, 0, -1))
 
                 # Border_2 = Extrude 1st border loop no translation :
@@ -4156,7 +4156,7 @@ class BDENTAL_4D_OT_align_to_front(bpy.types.Operator):
             )
             bpy.ops.view3d.view_all(center=True)
             bpy.ops.view3d.view_axis(type="FRONT")
-            bpy.ops.wm.tool_set_by_id(name="builtin.cursor")
+            # bpy.ops.wm.tool_set_by_id(name="builtin.cursor")
 
         return {"FINISHED"}
 

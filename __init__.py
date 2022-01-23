@@ -21,8 +21,9 @@
 #
 # ##### END GPL LICENSE BLOCK #####
 ##############################################################################################
+
 bl_info = {
-    "name": "BDENTAL4D_win3",  ###################Addon name
+    "name": f"BDENTAL4D_win3",  ###################Addon name
     "author": "Essaid Issam Dakir DMD, Ilya Fomenco DMD",
     "version": (3, 0, 0),
     "blender": (3, 0, 0),  ################# Blender working version
@@ -36,10 +37,10 @@ bl_info = {
 #############################################################################################
 # IMPORTS :
 #############################################################################################
-# Python imports :
 import sys, os, bpy
 from importlib import import_module
 from os.path import dirname, join, realpath, abspath, exists
+
 
 
 if sys.platform == "win32":
