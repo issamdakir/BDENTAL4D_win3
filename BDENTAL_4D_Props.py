@@ -67,7 +67,7 @@ class BDENTAL_4D_Props(bpy.types.PropertyGroup):
     #####################
     ProjectNameProp: StringProperty(
         name="Project Name",
-        default='Unknown',
+        default='Test Project',
         description="Project Name",
     )
     UserProjectDir: StringProperty(
