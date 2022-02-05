@@ -23,7 +23,7 @@
 ##############################################################################################
 
 bl_info = {
-    "name": f"BDENTAL4D_win3",  ###################Addon name
+    "name": "BDENTAL4D_win3",  ###################Addon name
     "author": "Essaid Issam Dakir DMD, Ilya Fomenco DMD",
     "version": (3, 0, 0),
     "blender": (3, 0, 0),  ################# Blender working version
